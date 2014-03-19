@@ -522,7 +522,6 @@ find_parameters (char **start_dir, ssize_t * start_dir_len,
     const char *file_all_charsets_label = N_("&All charsets");
 #endif
     const char *file_case_label = N_("Cas&e sensitive");
-    const char *file_skip_hidden_label = N_("S&kip hidden");
 
     /* file content */
     const char *content_content_label = N_("Content:");
@@ -553,12 +552,11 @@ find_parameters (char **start_dir, ssize_t * start_dir_len,
         file_recurs_label = _(file_recurs_label);
         file_pattern_label = _(file_pattern_label);
         file_skip_hidden_label = _(file_skip_hidden_label);
-	file_only_directories_label = _(file_only_directories_label);
+		file_only_directories_label = _(file_only_directories_label);
 #ifdef HAVE_CHARSET
         file_all_charsets_label = _(file_all_charsets_label);
 #endif
         file_case_label = _(file_case_label);
-        file_skip_hidden_label = _(file_skip_hidden_label);
 
         /* file content */
         content_content_label = _(content_content_label);
@@ -664,10 +662,9 @@ find_parameters (char **start_dir, ssize_t * start_dir_len,
 
     content_use_cbox = check_new (y2++, x2, options.content_use, content_use_label);
     add_widget (find_dlg, content_use_cbox);
-    cbox_position = FIND_Y - 5;
 
-    only_directories_cbox = check_new (cbox_position--, 3, options.only_directories, file_only_directories_label);
-    add_widget (find_dlg, only_directories_cbox);
+	only_directories_cbox = check_new(y1++, x1, options.only_directories, file_only_directories_label);
+	add_widget(find_dlg, only_directories_cbox);
 
     /* Continue 1st column */
     recursively_cbox = check_new (y1++, x1, options.find_recurs, file_recurs_label);
